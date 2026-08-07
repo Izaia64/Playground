@@ -221,18 +221,28 @@ p { margin: 0 0 12px; color: var(--ink-soft); }
   border-radius: var(--radius);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(160deg, var(--tint, #607d64), color-mix(in srgb, var(--tint, #607d64) 60%, black));
+  align-items: flex-end;
+  background: var(--forest-light);
   color: #fff;
 }
-.gallery-item.large { grid-column: span 2; grid-row: span 2; }
-.gallery-emoji { font-size: 2.6rem; opacity: 0.9; }
-.gallery-item.large .gallery-emoji { font-size: 4rem; }
-.gallery-item figcaption {
+.gallery-item img {
   position: absolute;
-  left: 14px;
-  bottom: 12px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 45%);
+}
+.gallery-item.large { grid-column: span 2; grid-row: span 2; }
+.gallery-item figcaption {
+  position: relative;
+  z-index: 1;
+  padding: 14px;
   font-size: 0.85rem;
   font-weight: 600;
   text-shadow: 0 2px 8px rgba(0,0,0,0.4);
