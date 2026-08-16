@@ -1,11 +1,15 @@
-name: Deploy Chamonix site to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
+      - "home/**"
       - "chamonix-appartement/**"
-      - ".github/workflows/deploy-chamonix-pages.yml"
+      - "memoire/**"
+      - "blog/**"
+      - "jeux/**"
+      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -27,13 +31,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r home/. _site/
+          mkdir -p _site/chamonix && cp -r chamonix-appartement/. _site/chamonix/
+          mkdir -p _site/memoire && cp -r memoire/. _site/memoire/
+          mkdir -p _site/blog && cp -r blog/. _site/blog/
+          mkdir -p _site/jeux && cp -r jeux/. _site/jeux/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: chamonix-appartement
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

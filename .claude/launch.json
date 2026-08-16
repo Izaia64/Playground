@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8123", "--directory", "chamonix-appartement"],
       "port": 8123
+    },
+    {
+      "name": "full-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8124", "--directory", "_preview_site"],
+      "port": 8124
     }
   ]
 }
