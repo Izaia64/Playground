@@ -1,0 +1,186 @@
+:root {
+  --gold: #c9a86a;
+  --gold-soft: #a8905f;
+  --cream: #f4efe4;
+  --black: #0a0a0a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 20%, #161513 0%, var(--black) 65%);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.hub {
+  width: 100%;
+  max-width: 980px;
+  text-align: center;
+}
+
+.hub-mark {
+  color: var(--gold);
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  margin: 0 0 64px;
+  opacity: 0.85;
+}
+
+/* ---------- Doors ---------- */
+.doors {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 44px 40px;
+}
+
+.door-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(120px, 20vw, 170px);
+  text-decoration: none;
+}
+
+.door-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 2.1;
+  border: 1px solid rgba(201, 168, 106, 0.55);
+  border-radius: 70px 70px 4px 4px;
+  position: relative;
+  overflow: hidden;
+  perspective: 700px;
+  background: linear-gradient(180deg, rgba(201, 168, 106, 0.05), rgba(201, 168, 106, 0) 45%);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.door-leaf {
+  position: absolute;
+  inset: 4px;
+  display: block;
+  background: linear-gradient(160deg, #171512, #0a0908);
+  border-radius: 66px 66px 2px 2px;
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.7s ease;
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 106, 0.15);
+}
+
+.door-handle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201, 168, 106, 0.6);
+  opacity: 0.8;
+}
+
+.door-title {
+  margin-top: 22px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.door-badge {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.45);
+}
+
+.door-item:hover .door-frame {
+  border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(201, 168, 106, 0.12);
+}
+
+.door-item:hover .door-leaf {
+  transform: rotateY(-38deg);
+  box-shadow: 10px 10px 26px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(201, 168, 106, 0.4);
+}
+
+.door-item:hover .door-title {
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+/* Work-in-progress door */
+.door-item.wip .door-frame {
+  opacity: 0.55;
+}
+
+.door-item.wip .door-badge {
+  color: var(--gold-soft);
+  opacity: 0.85;
+}
+
+.door-item.wip:hover .door-frame {
+  opacity: 0.8;
+}
+
+@media (max-width: 560px) {
+  .doors { gap: 32px 24px; }
+  .hub-mark { margin-bottom: 44px; }
+}
+
+/* ---------- Sub-page "coming soon" template ---------- */
+.hub-link-title {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: var(--cream);
+}
+
+.hub-link-sub {
+  display: block;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: rgba(244, 239, 228, 0.55);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.hub-back {
+  display: inline-block;
+  margin-top: 48px;
+  color: var(--gold);
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.hub-back:hover {
+  border-color: var(--gold);
+}
