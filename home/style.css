@@ -145,6 +145,21 @@ body {
   .hub-mark { margin-bottom: 44px; }
 }
 
+/* ---------- Footer ---------- */
+.site-footer {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.4);
+  pointer-events: none;
+}
+
 /* ---------- Sub-page "coming soon" template ---------- */
 .hub-link-title {
   display: block;
